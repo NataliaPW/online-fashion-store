@@ -1,0 +1,14 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144" width="144" height="144">
+	<title>shape_1</title>
+	<defs>
+		<linearGradient id="grd1" gradientUnits="userSpaceOnUse"  x1="72" y1="107" x2="72" y2="7">
+			<stop offset="0" stop-color="#ffc35b"  />
+			<stop offset="1" stop-color="#ffdc9e"  />
+		</linearGradient>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: url(#grd1) } 
+	</style>
+	<path id="shape_1" class="shp0" d="M72 7C99.61 7 122 29.39 122 57C122 84.61 99.61 107 72 107C44.39 107 22 84.61 22 57C22 29.39 44.39 7 72 7Z" />
+</svg>

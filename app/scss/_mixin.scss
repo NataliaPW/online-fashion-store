@@ -1,0 +1,358 @@
+/*обрезание текста*/
+
+@mixin line-clamp($lines: 1) {
+  @if $lines <=1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @else {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+}
+
+/* @include line-clamp(3); */
+
+/*подключение шрифтов*/
+/* миксин в _font.scss */
+
+/*подключение иконок*/
+@mixin icon($name, $width, $height, $color) {
+  @if ($width>0) {
+    width: #{$width}px;
+  }
+
+  @if ($height>0) {
+    height: #{$height}px;
+  }
+
+  mask: url('../images/sprite.svg#icon-#{$name}') center / cover no-repeat;
+  background-color: #{$color};
+}
+
+/* @include icon(search, 24, 24, $bg9); */
+
+/*подключение before*/
+@mixin img_bg() {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @content;
+}
+
+/* @include img_bg(); */
+
+@mixin img_adapt($cover) {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  @content;
+
+  @if ($cover==0) {
+    object-fit: contain;
+  }
+
+  @else if($cover==1) {
+    object-fit: cover;
+  }
+}
+
+/* @include img_adapt(1); 
+0-contain
+1-cover*/
+
+/* адаптив размера шрифта*/
+@mixin font-size-adopt($max-sz, $min-sz) {
+  @media (min-width: 767px) {
+    font-size: calc(#{$min-sz}px + (#{$max-sz} - #{$min-sz}) * (100vw / #{$maxWidth}));
+  }
+
+  @media (max-width: 767px) {
+    font-size: calc(#{$min-sz}px + 1.7 * (#{$max-sz} - #{$min-sz}) * ((100vw - 320px) / #{$maxWidth}));
+  }
+}
+
+/*адаптив padding*/
+
+@mixin p-adopt($startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+
+  @if($type==1) {
+    /*только если меньше контейнера*/
+    @media (max-width: #{$maxWidthContainer}px) {
+      padding-top: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / (#{$maxWidth - 320})));
+    }
+
+    /*только если больше контейнера*/
+    @media (min-width: #{$maxWidthContainer}px) {
+      padding-top: calc(#{$minSize}px + #{$addSize} * ((100vw - 320px) / (#{$maxWidthContainer - 320})));
+    }
+  }
+
+  @if($type==2) {
+    /*только если меньше контейнера*/
+    @media (max-width: #{$maxWidthContainer}px) {
+      padding-right: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / (#{$maxWidth - 320})));
+    }
+
+    /*только если больше контейнера*/
+    @media (min-width: #{$maxWidthContainer}px) {
+      padding-right: calc(#{$minSize}px + #{$addSize} * ((100vw - 320px) / (#{$maxWidthContainer - 320})));
+    }
+  }
+
+  @if($type==3) {
+    /*только если меньше контейнера*/
+    @media (max-width: #{$maxWidthContainer}px) {
+      padding-bottom: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / (#{$maxWidth - 320})));
+    }
+
+    /*только если больше контейнера*/
+    @media (min-width: #{$maxWidthContainer}px) {
+      padding-bottom: calc(#{$minSize}px + #{$addSize} * ((100vw - 320px) / (#{$maxWidthContainer - 320})));
+    }
+  }
+
+  @if($type==4) {
+
+    /*только если меньше контейнера*/
+    @media (max-width: #{$maxWidthContainer}px) {
+      padding-left: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / (#{$maxWidth - 320})));
+    }
+
+    /*только если больше контейнера*/
+    @media (min-width: #{$maxWidthContainer}px) {
+      padding-left: calc(#{$minSize}px + #{$addSize} * ((100vw - 320px) / (#{$maxWidthContainer - 320})));
+    }
+  }
+}
+
+/*  @include p-adopt(60, 30, 1); */
+
+/*адаптив margin*/
+
+@mixin m-adopt($startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+
+  @if($type==1) {
+
+    /*только если меньше контейнера*/
+    @media (max-width: #{$maxWidthContainer}px) {
+      margin-top: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / (#{$maxWidth - 320})));
+    }
+
+    /*только если больше контейнера*/
+    @media (min-width: #{$maxWidthContainer}px) {
+      margin-top: calc(#{$minSize}px + #{$addSize} * ((100vw - 320px) / (#{$maxWidthContainer - 320})));
+    }
+  }
+
+  @if($type==2) {
+
+    /*только если меньше контейнера*/
+    @media (max-width: #{$maxWidthContainer}px) {
+      margin-right: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / (#{$maxWidth - 320})));
+    }
+
+    /*только если больше контейнера*/
+    @media (min-width: #{$maxWidthContainer}px) {
+      margin-right: calc(#{$minSize}px + #{$addSize} * ((100vw - 320px) / (#{$maxWidthContainer - 320})));
+    }
+  }
+
+  @if($type==3) {
+
+    /*только если меньше контейнера*/
+    @media (max-width: #{$maxWidthContainer}px) {
+      margin-bottom: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / (#{$maxWidth - 320})));
+    }
+
+    /*только если больше контейнера*/
+    @media (min-width: #{$maxWidthContainer}px) {
+      margin-bottom: calc(#{$minSize}px + #{$addSize} * ((100vw - 320px) / (#{$maxWidthContainer - 320})));
+    }
+  }
+
+  @if($type==4) {
+
+    /*только если меньше контейнера*/
+    @media (max-width: #{$maxWidthContainer}px) {
+      margin-left: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / (#{$maxWidth - 320})));
+    }
+
+    /*только если больше контейнера*/
+    @media (min-width: #{$maxWidthContainer}px) {
+      margin-left: calc(#{$minSize}px + #{$addSize} * ((100vw - 320px) / (#{$maxWidthContainer - 320})));
+    }
+  }
+}
+
+/*адаптив margin*/
+
+@mixin gap-adopt($startSize, $minSize) {
+  $addSize: $startSize - $minSize;
+
+    /*только если меньше контейнера*/
+    @media (max-width: #{$maxWidthContainer}px) {
+      gap: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / (#{$maxWidth - 320})));
+    }
+
+    /*только если больше контейнера*/
+    @media (min-width: #{$maxWidthContainer}px) {
+      gap: calc(#{$minSize}px + #{$addSize} * ((100vw - 320px) / (#{$maxWidthContainer - 320})));
+    }
+}
+
+/*  @include gap-adopt(60, 30, 1); */
+
+/*анимирование*/
+
+@mixin transition($name1, $name2, $name3, $time, $anim) {
+  outline: transparent;
+
+  @if (($name2==0) and ($name3==0)) {
+    transition: $name1 #{$time}s $anim;
+  }
+
+  @if ($name3==0) {
+    transition: $name1 #{$time}s $anim,
+    $name2 #{$time}s $anim;
+  }
+
+  @else {
+    transition: $name1 #{$time}s #{$anim},
+    $name2 #{$time}s $anim,
+    $name3 #{$time}s $anim;
+  }
+}
+
+/* @include transition(background-color, 0, 0, 0.5, ease); */
+
+/*подключение before*/
+@mixin position($relative, $index) {
+  @if ($relative==0) {
+    position: relative;
+  }
+
+  @else if($relative==1) {
+    position: absolute;
+    content: "";
+  }
+
+  @content;
+
+  @if ($index==0) {}
+
+  @else {
+    z-index: $index;
+  }
+}
+
+/* @include position(1, 0); 
+0 - relative,
+1 - absolute */
+
+@mixin position-size($relative, $index, $width, $height, $color) {
+  @include position($relative, $index);
+  background-color: $color;
+
+  @if ($width>0) and ($height>0) {
+    width: #{$width}px;
+    height: #{$height}px;
+  }
+
+  @else if ($width==0) and ($height>0) {
+    height: #{$height}px;
+  }
+
+  @else if ($width>0) and ($height==0) {
+    width: #{$width}px;
+  }
+
+  @else {}
+}
+
+/* @include position-size(1, 4, 23, 23, $bw); */
+
+
+/*подключение flex*/
+
+@mixin flex($justify, $column, $aling, $wrap) {
+  display: flex;
+
+  @if ($justify==1) {
+    justify-content: space-between;
+  }
+
+  @else if($justify==2) {
+    justify-content: center;
+  }
+
+  @else if($justify==3) {
+    justify-content: end;
+  }
+
+  @else if($justify==4) {
+    justify-content: start;
+  }
+
+  @else if($justify==5) {
+    justify-content: space-around;
+  }
+
+  @else if($justify==6) {
+    justify-content: flex-end;
+  }
+
+  @if ($column==1) {
+    flex-direction: column;
+  }
+
+  @if ($aling==1) {
+    align-items: center;
+  }
+
+  @if ($aling==2) {
+    align-items: flex-end;
+  }
+
+  @if ($aling==3) {
+    align-items: end;
+  }
+
+  @if ($wrap==1) {
+    flex-wrap: wrap;
+  }
+
+  @if ($wrap==2) {
+    flex-wrap: nowrap;
+  }
+
+  @content;
+}
+
+/* @include flex(0, 0, 0 ,0);
+1 -space-between
+2 - center
+3-  end;
+4 - start
+5 - space-around
+6-justify-content: flex-end;
+
+1 - flex-direction: column;
+
+1-align-items: center;
+2- align-items: flex-end;
+3- align-items: end;
+
+1- flex-wrap: wrap;
+ flex-wrap: nowrap;
+*/

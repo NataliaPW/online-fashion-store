@@ -1,0 +1,21 @@
+/*подключение шрифтов*/
+@mixin font-face($font-family, $url, $weight) {
+  @font-face {
+    font-family: "#{$font-family}";
+    src: url('../fonts/#{$url}.woff2') format("woff2"),
+    url('../fonts/#{$url}.woff') format("woff");
+    font-weight: #{$weight};
+    font-display: swap;
+    font-style: normal;
+  }
+}
+
+/* @include font-face(OpenSans, OpenSans-Light, 300);
+@include font-face(OpenSans, OpenSans-Regular, 400);
+@include font-face(OpenSans, OpenSans-SemiBold, 600);
+@include font-face(OpenSans, OpenSans-Bold, 700);
+@include font-face(Ruda, Ruda-Regular, 400);
+@include font-face(Ruda, Ruda-SemiBold, 600);
+@include font-face(Ruda, Ruda-Bold, 700);
+@include font-face(Ruda, Ruda-Black, 900);
+@include font-face(Signika, Signika-Bold, 700); */
