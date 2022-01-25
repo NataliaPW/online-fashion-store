@@ -1,22 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Online fashion store</title>
   <link rel="stylesheet" href="css/style.min.css">
 </head>
+
 <body id="body">
   <header class="header">
+    <div class="container">
+      <nav class="header__menu menu">
 
+        <button class="menu__btn" type="button" aria-label="кнопка меню">
+          <span class="menu__btn-line"></span>
+        </button>
+
+        <a class="header__logo logo" href="#body">
+          <img class="logo__img" src="images/header/logo.svg" alt="logo company" width="183" height="30">
+        </a>
+
+        <ul class="menu__list">
+          <li class="menu__item">
+            <a class="menu__link" href="#" aria-label="HOME">
+              HOME
+            </a>
+          </li>
+
+          <li class="menu__item">
+            <a class="menu__link" href="#" aria-label="SHOP">
+              SHOP
+            </a>
+          </li>
+
+          <li class="menu__item">
+            <a class="menu__link" href="#" aria-label="PAGE">
+              PAGE
+            </a>
+          </li>
+
+          <li class="menu__item">
+            <a class="menu__link" href="#" aria-label=" BLOG">
+              BLOG
+            </a>
+          </li>
+
+          <li class="menu__item">
+            <a class="menu__link" href="#" aria-label=" CONTACT">
+              CONTACT
+            </a>
+          </li>
+        </ul>
+
+
+        <ul class="menu__list">
+          <li class="menu__item menu__item-user">
+            <button class="menu__link-user menu__link-user--user" type="button">
+              <span class="sr-only">user</span>
+            </button>
+          </li>
+
+          <li class="menu__item menu__item-user">
+            <button class="menu__link-user menu__link-user--search" type="button">
+              <span class="sr-only">search</span>
+            </button>
+          </li>
+
+          <li class="menu__item menu__item-user">
+            <button class="menu__link-user menu__link-user--heart" type="button">
+              <span class="sr-only">heart</span>
+              <span class="menu__link-number">5</span>
+            </button>
+          </li>
+
+          <li class="menu__item menu__item-user">
+            <button class="menu__link-user menu__link-user--cart" type="button">
+              <span class="sr-only">cart</span>
+              <span class="menu__link-number">7</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
   <main class="main">
-
+    
   </main>
   <footer class="footer">
+    <div class="conainer">
+      <div class="footer__inner">
+        <div class="footer__column">
+<a class="footer__logo logo" href="#body">
+          <img class="logo__img" src="images/header/logo.svg" alt="logo company" width="183" height="30">
+        </a>
 
+        </div>
+        <div class="footer__column">
+
+        </div>
+        <div class="footer__column">
+
+        </div>
+        <div class="footer__column">
+
+        </div>
+      </div>
+    </div>
   </footer>
   <script src="js/main.min.js"></script>
 </body>
+
 </html>

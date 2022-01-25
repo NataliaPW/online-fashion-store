@@ -195,7 +195,7 @@
   }
 }
 
-/*адаптив margin*/
+/*адаптив gap*/
 
 @mixin gap-adopt($startSize, $minSize) {
   $addSize: $startSize - $minSize;

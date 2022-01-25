@@ -1,0 +1,163 @@
+.header {}
+
+
+.header__logo {
+  position: relative;
+  @include transition(color, 0, 0, 0.5, ease);
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: $pink1;
+    @include transition(width, 0, 0, 0.5, ease);
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  @include p-adopt(40, 40, 1);
+  @include p-adopt(40, 40, 3);
+  align-items: center;
+  color: $black2;
+  @extend %asz26;
+  text-transform: uppercase;
+
+  &__btn {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 36px;
+    }
+  }
+
+  &__item-user {
+    &:not(:last-child) {
+      margin-right: 18px;
+    }
+  }
+
+  &__link {
+    position: relative;
+    @include transition(color, font-weight, 0, 0.5, ease);
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 1px;
+      left: 0;
+      height: 1px;
+      width: 0;
+      background-color: $pink1;
+      @include transition(width, 0, 0, 0.5, ease);
+    }
+
+    &:focus {
+      color: $pink2;
+      font-weight: 700;
+    }
+
+    &:hover,
+    &:active {
+      color: $pink1;
+       font-weight: 700;
+    }
+
+    &:hover {
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+
+  &__link-user {
+    width: 30px;
+    height: 30px;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      z-index: 2;
+      @include transition(background-color, 0, 0, 0.5, ease);
+    }
+
+    &--user {
+      &::before {
+        @include icon(user, 25, 25, $black2);
+      }
+    }
+
+    &--search {
+      &::before {
+        @include icon(search, 25, 25, $black2);
+      }
+    }
+
+    &--heart {
+      &::before {
+        @include icon(heart, 25, 25, $black2);
+      }
+    }
+
+    &--cart {
+      &::before {
+        @include icon(cart, 25, 25, $black2);
+      }
+    }
+
+    &:focus {
+      &::before {
+        background-color: $pink2;
+      }
+    }
+
+    &:hover,
+    &:active {
+      &::before {
+        background-color: $pink1;
+      }
+    }
+  }
+
+  &__link-number {
+    position: absolute;
+    z-index: 5;
+    top: -9px;
+    right: -9px;
+    font-family: $font-Quicksand;
+    font-weight: 500;
+    color: $white1;
+    background-color: $pink1;
+    @extend %asz12;
+    text-align: center;
+    min-width: 20px;
+    height: 20px;
+    border-radius: calc(20px / 2);
+    line-height: 20px;
+    padding: 0 5px;
+  }
+}
+
+.logo {
+  @include img_bg();
+}

@@ -1,8 +1,10 @@
 //color
-/* $bg9:#63A60E;
-$bg8:rgba(99, 166, 14, 0.2);
-$bg7:#4D810C;
-$bg6:#4D800C;
+$pink1:#fe3e57;
+$pink2:#fb2d4f;
+$black1:#8d8d8d;
+$black2:#29282d;
+$white1:#FFFFFF;
+/*$bg6:#4D800C;
 $bg2:#E0EDCF;
 $bg1:#EFF6E7;
 $br9:#CF3E3B;
@@ -26,13 +28,12 @@ $bs7:#5A5A5A;
 $bs6:#F3F3F2;
 $bs5:#C1C1C1;
 $bs4:#f5f5f5;
-$bs1:#F6F6F6;
-$bw:#FFFFFF; */
+$bs1:#F6F6F6;*/
 
 //font-famili
-$fos:OpenSans;
-$fr:Ruda;
-$fs:Signika;
+$font-Roboto:Roboto;
+$font-Quicksand:Quicksand;
+/* $fs:Signika; */
 
 @function max($numbers...) {
   @return m#{a}x(#{$numbers});
@@ -45,5 +46,5 @@ $fs:Signika;
 //переменные media
 $minWidth:320px;
 $maxWidth:1920;
-$maxWidthContainer: 1320;
-$md0:1320px;
+$maxWidthContainer: 1200;
+$md0:1200px;
